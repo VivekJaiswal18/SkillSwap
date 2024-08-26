@@ -1,7 +1,7 @@
 import { SiteConfig } from "types"
 
 export const siteConfig: SiteConfig = {
-  name: "AfriFarm",
+  name: "SkillSwap",
   description:
     "In a transformative blend of the developing world and a socially conscious enviroments",
   url: "https://afri-farm.com",

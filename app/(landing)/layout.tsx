@@ -9,6 +9,24 @@ import localFont from "next/font/local";
 import { cn } from "@/lib/utils";
 // import { EdgeStoreProvider } from "@/lib/edgestore";
 import { siteConfig } from "@/config/site";
+import WagmiConfigProvider from "../../components/WagmiConfigProvider"
+// import '@rainbow-me/rainbowkit/styles.css';
+// import {
+//   getDefaultConfig,
+//   RainbowKitProvider,
+// } from '@rainbow-me/rainbowkit';
+// import { WagmiProvider } from 'wagmi';
+// import {
+//   mainnet,
+//   polygon,
+//   optimism,
+//   arbitrum,
+//   base,
+// } from 'wagmi/chains';
+// import {
+//   QueryClientProvider,
+//   QueryClient,
+// } from "@tanstack/react-query";
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -17,7 +35,7 @@ const poppins = Poppins({ subsets: ["latin-ext"], weight: "400" });
 
 export const metadata: Metadata = {
   title: {
-    default: "Afri-Farm - Learn for the best ",
+    default: "SkillSwap - Learn for the best ",
     template: `%s -  ${siteConfig.name}`,
   },
 };
@@ -28,6 +46,15 @@ const fontHeading = localFont({
 });
 
 
+// const config = getDefaultConfig({
+//   appName: 'SkillSwap',
+//   projectId: 'f49af14466b2311264be6349729cbf9e',
+//   chains: [mainnet, polygon, optimism, arbitrum, base],
+//   ssr: true,
+// });
+
+// const queryClient = new QueryClient();
+
 export default function RootLayout({
   children,
 }: {
@@ -35,15 +62,19 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      {/* <ClerkProvider> */}
+      {/* <WagmiProvider config={config}>
+      <QueryClientProvider client={queryClient}>
+        <RainbowKitProvider> */}
+        <WagmiConfigProvider>
         <Providers>
-          {/* <EdgeStoreProvider> */}
             <Navbar />
             <body className={cn(poppins.className , fontHeading.variable)}>{children}</body>
-          {/* </EdgeStoreProvider> */}
           <Toaster />
         </Providers>
-      {/* </ClerkProvider> */}
+        </WagmiConfigProvider>
+        {/* </RainbowKitProvider>
+      </QueryClientProvider>
+    </WagmiProvider> */}
     </html>
   );
 }

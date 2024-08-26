@@ -3,7 +3,7 @@ const Supported = () => {
     <section className="max-w-8xl to-50 flex-col mx-auto mt-10 w-full rounded-3xl flex  md:flex-row md:justify-between justify-center md:items-start items-center border border-slate-900 px-4 dark:bg-transparent dark:border-lg sm:px-16 ">
       <div className="flex h-min px-2  flex-col justify-center gap-8 py-12">
         <h1 className="font-heading max-w-3xl text-3xl font-bold sm:text-6xl">
-          Helped a{" "}
+          Mission to Help a{" "}
           <span className="from-blue-400 bg-gradient-to-br to-purple-600 bg-clip-text font-black uppercase text-transparent">
             MIllions of{" "}
           </span>
