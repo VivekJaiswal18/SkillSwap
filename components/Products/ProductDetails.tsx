@@ -1,3 +1,4 @@
+"use-client"
 import React from 'react'
 import Link from 'next/link'
 import Panel from '../Panel'
@@ -24,10 +25,11 @@ const ProductCard = ({
   onClick?: any
   alignLeft?: boolean
 }) => (
+  
   <Link href={url}>
     <div
       className={[
-        'group relative w-full h-[400px] flex flex-col gap-5 lg:flex-row focus:outline-none focus:border-none focus:ring-brand-600 focus:ring-2 focus:rounded-xl',
+        'group relative border-4 w-full h-[400px] flex flex-col gap-5 lg:flex-row focus:outline-none focus:border-none focus:ring-brand-600 focus:ring-2 focus:rounded-xl',
         className,
       ].join(' ')}
       onClick={onClick}

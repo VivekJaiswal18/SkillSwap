@@ -8,7 +8,7 @@ const Footer = () => {
       <div className="flex  gap-3 justify-center items-center mx-auto underline-offset-1 underline">
         <div className="bg-green-400 animate-ping rounded-full w-3 h-3" ></div>  
         <Link href="https://afrifarms.openstatus.dev/">
-        All System is Operational 
+        All System Operational 
         </Link>
       </div>
       <footer className=" border-t !w-full py-10 my-9 justify-between flex items-center">
@@ -26,7 +26,7 @@ const Footer = () => {
                         </Link> */}
         </div>
         <span className="text-gray-700 dark:text-stone-300 font-light text-sm flex justify-center items-center">
-          {new Date().getFullYear()} © SkillSwap
+          {new Date().getFullYear()} © SkillSwap 
         </span>
         <div className=" flex items-center gap-2">
           <Link href="https://x.com/_vivekjaiswal18">

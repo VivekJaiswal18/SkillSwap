@@ -1,3 +1,4 @@
+"use client"
 import "../globals.css";
 import type { Metadata } from "next";
 import { Inter, Poppins } from "next/font/google";
@@ -12,6 +13,10 @@ import { siteConfig } from "@/config/site";
 import WagmiConfigProvider from "../../components/WagmiConfigProvider"
 import CourseSideBar from "@/components/UnitSide";
 import CourseMarketplace from "../courses/page";
+import Footer from "@/components/Footer";
+import { DayPickerProvider } from "react-day-picker";
+import PublishCourse from "@/components/publishcourse";
+import { UserNameForm } from "@/components/user-input-form";
 // import '@rainbow-me/rainbowkit/styles.css';
 // import {
 //   getDefaultConfig,
@@ -64,19 +69,34 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      {/* <WagmiProvider config={config}>
-      <QueryClientProvider client={queryClient}>
-        <RainbowKitProvider> */}
-        <WagmiConfigProvider>
+       <WagmiConfigProvider>
         <Providers>
             <Navbar />
-            <body className={cn(poppins.className , fontHeading.variable)}>{children}</body>
+            <body className={cn(poppins.className , fontHeading.variable)}>{children}</body> 
           <Toaster />
         </Providers>
         </WagmiConfigProvider>
+    </html>
+    );
+  }
+  // return (
+  //   <html lang="en">
+    //  <WagmiProvider config={config}>
+    //   <QueryClientProvider client={queryClient}>
+    //     <RainbowKitProvider> 
+        // <WagmiConfigProvider>
+        // <Providers>
+        //     <Navbar />
+        //     {/* <body className={cn(poppins.className , fontHeading.variable)}>{children}</body> */}
+        //     {/* <body>{children}</body> */}
+        //     <PublishCourse/>
+        //   <Toaster />
+        //   <Footer/>
+        // </Providers>
+        // </WagmiConfigProvider>
         {/* </RainbowKitProvider>
       </QueryClientProvider>
     </WagmiProvider> */}
-    </html>
-  );
-}
+  //   </html>
+  // );
+// }

@@ -1,4 +1,4 @@
-"use client";
+// "use client";
 import { json } from "stream/consumers";
 import { useEffect, useState } from "react";
 import { DialogClose } from "@radix-ui/react-dialog";

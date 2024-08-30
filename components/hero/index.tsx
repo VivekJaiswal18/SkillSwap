@@ -54,7 +54,7 @@ export const HeroSection = () => {
                 <span className="bg-gradient-to-br from-indigo-300 to-purple-600 bg-clip-text text-transparent">
                   01
                 </span>
-                <span className=" ">Create account</span>
+                <span className=" ">Connect Wallet</span>
               </div>
               <div className="flex flex-row gap-2">
                 <svg
@@ -100,14 +100,14 @@ export const HeroSection = () => {
                 "  text-white cursor-pointer font-bold transition-all duration-[0.3s] ease-[ease] relative inline-block shadow-[inset_2px_2px_2px_0px_rgba(255,255,255,0.1),7px_7px_20px_0px_rgba(26, 35, 126, 0.3),4px_4px_5px_0px_rgba(0,0,0,0.1)] px-4 md:px-[25px] py-2.5 rounded-[5px] bg-transparent",
                 "dark:text-white text-stone-900 border-[none] after:absolute after:content-[''] after:w-0 after:h-full after:z-[-1] after:shadow-[-7px_-7px_20px_0px_#1a237e,-4px_-4px_5px_0px_#000,7px_7px_20px_0px_#0002,4px_4px_5px_0px_#0001] after:transition-all after:duration-[0.3s] after:ease-[ease] after:left-0 after:top-0 hover:text-black hover:after:w-full border-stone-100 dark:border-stone-700 hover:dark:text-white hover:after:left-auto hover:after:right-0 active:top-0.2 border w-max"
               )}
-              href="/login"
+              href="/publish-courses"
               // onClick={() => loglib.track("get started", { from: "hero section" })}
             >
               Get Started
             </Link>
 
             <Link
-              href="/learn-more"
+              href="/courses"
               className=" flex items-center gap-4 rounded-md bg-gradient-to-tr from-stone-700/80 to-purple-600/60 bg-clip-text text-transparent transition-all duration-500 hover:gap-8 hover:text-gray-800 dark:from-white/70 dark:to-purple-700 hover:dark:text-gray-400"
               // onClick={() => loglib.track("live demo", { from: "hero section" })}
             >

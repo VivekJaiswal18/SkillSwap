@@ -1,4 +1,4 @@
-"use client";
+// "use client";
 import { cn } from "@/lib/utils";
 import { Chapter } from "@prisma/client";
 import { useMutation } from "@tanstack/react-query";
