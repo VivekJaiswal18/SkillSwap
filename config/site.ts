@@ -1,14 +1,12 @@
-import { SiteConfig } from "types"
+import { siteConfigType } from "@/app/type";
 
-export const siteConfig: SiteConfig = {
+export const siteConfig: siteConfigType = {
   name: "SkillSwap",
-  description:
-    "In a transformative blend of the developing world and a socially conscious enviroments",
+  discription: "In a transformative blend of the developing world and a socially conscious enviroments",
   url: "https://afri-farm.com",
   ogImage: "https://afri-farm.com/opengraph-image-2.png",
   links: {
-    twitter: "https://twitter.com/afrifarm",
-    github: "https://github.com/Kinfe123",
-    linkedin:'https://www.linkedin.com/company/afrifarm'
+    twitter: "https://x.com/_vivekjaiswal18",
+    github: "https://github.com/VivekJaiswal18",
   },
 }

@@ -10,7 +10,8 @@
     "prisma:init": "prisma init",
     "prisma:migrate": "prisma migrate dev --preview-feature",
     "prisma:studio": "prisma studio",
-    "prisma:push": "prisma db push"
+    "prisma:push": "prisma db push",
+    "type-check": "tsc --noEmit"
   },
   "dependencies": {
     "@clerk/nextjs": "^4.23.3",
@@ -40,7 +41,6 @@
     "@types/node": "^20.4.8",
     "@types/react": "^18.2.18",
     "@types/react-dom": "^18.2.7",
-    "@types/react-leaflet": "^3.0.0",
     "autoprefixer": "10.4.14",
     "axios": "^1.6.7",
     "class-variance-authority": "^0.7.0",
@@ -78,6 +78,8 @@
     "zod": "^3.22.4"
   },
   "devDependencies": {
+    "@types/ms": "^0.7.34",
+    "@types/react-leaflet": "^3.0.0",
     "@types/string-similarity": "^4.0.0",
     "prettier": "^3.0.1",
     "prisma": "^5.1.1"

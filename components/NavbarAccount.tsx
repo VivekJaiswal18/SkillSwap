@@ -67,7 +67,7 @@ const UserAccountNav = ({ user }: any) => {
         <DropdownMenuSeparator />
          {/* @ts-ignore */}
         <DropdownMenuItem
-          onSelect={async (event: {event:any}) => {
+          onSelect={async (event) => {
             event.preventDefault();
            await clerk.signOut()
           }}

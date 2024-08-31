@@ -5,7 +5,6 @@ import { usePathname } from "next/navigation"
 
 import { cn } from "@/lib/utils"
 import { Icons } from "@/components/icons"
-import { getUser } from "@/lib/curruser"
 import { Icon } from "@radix-ui/react-select"
 
 interface DashboardNavProps {

@@ -7,11 +7,9 @@ import { UserNameForm } from "@/components/user-input-form";
 
 
 // import { prisma } from "@/lib/db";
-import DownloadPage from "../../dashboard/components/download";
 import { timeAgo } from "@/lib/utils";
 import { DotsHorizontalIcon } from "@radix-ui/react-icons";
 import Background from "@/components/landing/blur-background/background";
-import Resources from "@/app/dashboard/components/resources";
 export const metadata = {
   title: "Explore",
   description: "Explore Resources",

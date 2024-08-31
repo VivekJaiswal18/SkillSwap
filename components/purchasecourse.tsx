@@ -17,7 +17,7 @@ async function getCourses() {
       courses.push({
         id: i,
         creator: course.creator,
-        price: ethers.formatEther(course.price),
+        price: course.price,
         isActive: course.isActive,
         contentURI: course.contentURI,
         title: metadata.title,

@@ -17,14 +17,14 @@ export const Hero = () => {
             star.offsetHeight;
             star.style.animation = "";
         };
-        const stars = document.getElementsByClassName("star");
-        for (const star of stars) {
-            setTimeout(() => {
-                animate(star as HTMLElement);
-                setInterval(() => animate(star as HTMLElement), 1000);
-            }, index++ * (interval / 3));
-        }
-    }, []);
+    const stars = Array.from(document.getElementsByClassName("star"));
+    stars.forEach((star, index) => {
+        setTimeout(() => {
+            animate(star as HTMLElement);
+            setInterval(() => animate(star as HTMLElement), 1000);
+        }, index * (interval / 3));
+    });
+}, []);
     return (
         <div className="font-heading flex flex-col justify-center items-center max-w-3xl text-4xl font-bold text-stone-800 dark:text-stone-300">
             <h1 className=" hover:opacity-95 flex flex-wrap flex-col md:flex-row items-start md:item gap-2 dark:text-stone-100/80 2xl:text-4xl md:text-3xl text-lg">

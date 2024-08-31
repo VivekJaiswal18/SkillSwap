@@ -90,9 +90,15 @@ export default function PublishCourse() {
         content: contentUri
       };
 
+      const metadataFile = new File(
+        [JSON.stringify(metadata)],
+        `${title}-metadata.json`, // Providing a name for the file
+        { type: 'application/json' }
+      );
+
       // Upload metadata to Pinata
       const metadataUri = await uploadToPinata(
-        new Blob([JSON.stringify(metadata)], { type: 'application/json' }),
+        metadataFile,
         `${title}-metadata`,
          description
       );

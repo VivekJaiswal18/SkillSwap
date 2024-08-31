@@ -1,22 +1,15 @@
 # SkillSwap
 
-## Logo
 
-[SkillSwap](https://afri-farm.vercel.app/) is an innovative educational platform that leverages advanced technologies to provide comprehensive and engaging learning experiences. The platform combines web crawling, GPT-based information processing, YouTube integration, and quiz assessments to empower learners with a holistic and effective learning experience.
+[SkillSwap](https://skillswap-one.vercel.app/) is an innovative educational platform that leverages advanced technologies to provide comprehensive and engaging learning experiences. The platform combines web crawling, GPT-based information processing, YouTube integration, and quiz assessments to empower learners with a holistic and effective learning experience.
 
-## Features
+## Contract
+The smart contract used in this project is deployed on EDU chain.
+This is the contract address = 0x0192a6b655e4f92aac6e3a1c6177e43a2fd90093
 
 ## Benefits
 
-- Comprehensive Notes: AfriFarm provides learners with comprehensive, summarized notes derived from crawled online content. The notes are structured and concise, making it easier to understand and retain knowledge.
+Our platform revolutionizes online education by enabling educators to publish and monetize their courses as tokenized assets on EduChain, an Arbitrum Orbit-based blockchain. Leveraging IPFS for decentralized storage, the platform ensures that course content is securely stored and accessible to students worldwide. By integrating blockchain technology, we provide a transparent, secure, and censorship-resistant environment where students can purchase courses using cryptocurrency, ensuring fair compensation for creators and a seamless learning experience for users.
 
-- Curated Educational Videos: The platform offers curated educational videos from YouTube, enabling learners to supplement their understanding with visual explanations, demonstrations, and real-world examples.
 
-- Interactive Quizzes: AfriFarm's intelligent quiz assessments allow learners to assess their understanding of the subject matter. By identifying areas for improvement, learners can track their progress and reinforce acquired knowledge.
-
-- Holistic Learning Experience: The combination of comprehensive notes, curated videos, and interactive quizzes delivers a holistic learning experience. Learners can access information from multiple sources, engage with multimedia content, and actively participate in their learning journey.
-
-## Getting Started
-
-To start using AfriFarm, simply [sign up](https://www.afrifarm.com/signup) on our website. Once registered, you will have access to a wide range of educational resources, including comprehensive notes, curated videos, and interactive quizzes. The platform is user-friendly and designed to provide a seamless learning experience.
 
