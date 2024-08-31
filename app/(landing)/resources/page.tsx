@@ -2,7 +2,7 @@ import { redirect } from "next/navigation";
 
 import { DashboardHeader } from "@/components/header";
 import { DashboardShell } from "@/components/ui/shell";
-import { UserNameForm } from "@/components/user-input-form";
+// import { UserNameForm } from "@/components/user-input-form";
 // import { getUser } from "@/lib/curruser";
 
 

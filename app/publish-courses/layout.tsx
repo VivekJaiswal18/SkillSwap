@@ -16,7 +16,7 @@ import CourseMarketplace from "../courses/page";
 import Footer from "@/components/Footer";
 import { DayPickerProvider } from "react-day-picker";
 import PublishCourse from "@/components/publishcourse";
-import { UserNameForm } from "@/components/user-input-form";
+// import { UserNameForm } from "@/components/user-input-form";
 // import '@rainbow-me/rainbowkit/styles.css';
 // import {
 //   getDefaultConfig,
