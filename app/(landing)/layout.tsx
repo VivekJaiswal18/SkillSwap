@@ -10,7 +10,7 @@ import { cn } from "@/lib/utils";
 // import { EdgeStoreProvider } from "@/lib/edgestore";
 import { siteConfig } from "@/config/site";
 import WagmiConfigProvider from "../../components/WagmiConfigProvider"
-import CourseSideBar from "@/components/UnitSide";
+// import CourseSideBar from "@/components/UnitSide";
 import CourseMarketplace from "../courses/page";
 // import '@rainbow-me/rainbowkit/styles.css';
 // import {

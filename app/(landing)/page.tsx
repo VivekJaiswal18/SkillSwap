@@ -16,7 +16,7 @@ import { useEffect } from "react";
 import ProductCard from "@/components/Products/ProductDetails";
 import Panel from "@/components/Panel";
 import { Shell } from "@/components/shell/shell";
-import CourseSideBar from "@/components/UnitSide";
+// import CourseSideBar from "@/components/UnitSide";
 
 // const apiKey = process.env.GOOGLE_CLIENT_ID;
 

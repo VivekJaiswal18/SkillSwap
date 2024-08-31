@@ -92,7 +92,7 @@ import { cn } from "@/lib/utils";
 // import { EdgeStoreProvider } from "@/lib/edgestore";
 import { siteConfig } from "@/config/site";
 import WagmiConfigProvider from "../../components/WagmiConfigProvider"
-import CourseSideBar from "@/components/UnitSide";
+// import CourseSideBar from "@/components/UnitSide";
 import CourseMarketplace from "../courses/page";
 import Footer from "@/components/Footer";
 import { DayPickerProvider } from "react-day-picker";
