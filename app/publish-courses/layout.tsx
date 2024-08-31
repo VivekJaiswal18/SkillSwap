@@ -1,4 +1,4 @@
-"use client"
+// "use client"
 import "../globals.css";
 import type { Metadata } from "next";
 import { Inter, Poppins } from "next/font/google";
@@ -16,25 +16,6 @@ import CourseMarketplace from "../courses/page";
 import Footer from "@/components/Footer";
 import { DayPickerProvider } from "react-day-picker";
 import PublishCourse from "@/components/publishcourse";
-// import { UserNameForm } from "@/components/user-input-form";
-// import '@rainbow-me/rainbowkit/styles.css';
-// import {
-//   getDefaultConfig,
-//   RainbowKitProvider,
-// } from '@rainbow-me/rainbowkit';
-// import { WagmiProvider } from 'wagmi';
-// import {
-//   mainnet,
-//   polygon,
-//   optimism,
-//   arbitrum,
-//   base,
-// } from 'wagmi/chains';
-// import {
-//   QueryClientProvider,
-//   QueryClient,
-// } from "@tanstack/react-query";
-
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -51,16 +32,6 @@ const fontHeading = localFont({
   src:  '../../public/CalSans-SemiBold.ttf',
   variable: "--font-heading",
 });
-
-
-// const config = getDefaultConfig({
-//   appName: 'SkillSwap',
-//   projectId: 'f49af14466b2311264be6349729cbf9e',
-//   chains: [mainnet, polygon, optimism, arbitrum, base],
-//   ssr: true,
-// });
-
-// const queryClient = new QueryClient();
 
 export default function RootLayout({
   children,
@@ -79,24 +50,4 @@ export default function RootLayout({
     </html>
     );
   }
-  // return (
-  //   <html lang="en">
-    //  <WagmiProvider config={config}>
-    //   <QueryClientProvider client={queryClient}>
-    //     <RainbowKitProvider> 
-        // <WagmiConfigProvider>
-        // <Providers>
-        //     <Navbar />
-        //     {/* <body className={cn(poppins.className , fontHeading.variable)}>{children}</body> */}
-        //     {/* <body>{children}</body> */}
-        //     <PublishCourse/>
-        //   <Toaster />
-        //   <Footer/>
-        // </Providers>
-        // </WagmiConfigProvider>
-        {/* </RainbowKitProvider>
-      </QueryClientProvider>
-    </WagmiProvider> */}
-  //   </html>
-  // );
-// }
+

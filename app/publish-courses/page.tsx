@@ -367,17 +367,8 @@ export default function Home() {
   return (
     <NextUIProvider>
       <main className=" min-h-screen  grid place-items-center space-y-10 md:space-y-20 p-16">
-        {/* hellow */}
-        {/* <HeroSection /> */}
-        {/* <Products /> */}
-        {/* <Product /> */}
-        {/* <Featured /> */}
-        {/* <ProductCard title={"sfd"} subtitle={"Hello"} url={""} image={"https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pexels.com%2Fsearch%2Fphoto%2520editing%2F&psig=AOvVaw0UgVlc23i8aAKXf6UoqfTc&ust=1724801897123000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCLD9l_Ppk4gDFQAAAAAdAAAAABAR"}/>  */}
-         {/* Can be used for course card  */}
          <h1 className="items-start text-3xl font-bold mt-5">Publish a Course</h1>
          <PublishCourse/>
-        {/* <Accordions /> */}
-        {/* <Supported /> */}
       </main>
       <div className="m-10">
         <Footer />
