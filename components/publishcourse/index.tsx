@@ -19,6 +19,7 @@ export default function PublishCourse() {
   const [price, setPrice] = useState('');
   const [image, setImage] = useState<File | null>(null);
   const [content, setContent] = useState<File | null>(null);
+  const [loading, setloading] = useState(false)
 
   const switchToEduChain = async () => {
     if (!window.ethereum) throw new Error("No crypto wallet found");
@@ -54,14 +55,17 @@ export default function PublishCourse() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setloading(true);
 
     if (!image || !content) {
       alert('Please select both image and content files.');
+      setloading(false);
       return;
     }
 
     if (!ethers) {
       alert('Ethers library not loaded yet. Please try again.');
+      setloading(false);
       return;
     }
 
@@ -109,7 +113,7 @@ export default function PublishCourse() {
       const signer =  provider.getSigner();
       await publishCourse(await signer, ethers.parseEther(price), metadataUri);
 
-      alert('Course published successfully! \nYou can check your listing in courses route');
+      alert('Course published successfully! \nClick Published Courses to check your listing');
     
       setTitle('')
       setDescription('')
@@ -120,12 +124,14 @@ export default function PublishCourse() {
       console.error('Error publishing course:', error);
       alert('Failed to publish course: ' + (error as Error).message);
     }
+    finally {
+      setloading(false); // Reset loading state
+    }
   };
 
   return (
     <NextUIProvider>
       <div>
-
         <form onSubmit={handleSubmit}>
           <div className='flex-col m-3 items-center justify-center'>
           <input className="flex m-5 h-14 rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 w-[400px]" type="text" value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Course Title" required />
@@ -133,7 +139,10 @@ export default function PublishCourse() {
           <input className="flex m-5 h-14 rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 w-[400px]" type="number" value={price} onChange={(e) => setPrice(e.target.value)} placeholder="Price in EDU" required />
           <input className="flex m-5 h-14 rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 w-[400px]" type="file" onChange={(e) => setImage(e.target.files?.[0] || null)} accept="image/*" required />
           <input className="flex m-5 h-14 rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 w-[400px]" type="file" onChange={(e) => setContent(e.target.files?.[0] || null)} required />
-          <button className="border m-5 rounded-lg p-4" type="submit">Publish Course</button>
+          <div className="flex justify-center mt-5">
+          <button className="border m-5 rounded-lg p-4" type="submit" disabled={loading}>
+            {loading ? 'Publishing...' : 'Publish Course' }</button>
+            </div>
           </div>
         </form>
       </div>
