@@ -16,7 +16,7 @@
 import axios from 'axios';
 
 const pinataApiKey = process.env.NEXT_PUBLIC_PINATA_API_KEY;
-const pinataSecretApiKey = process.env.PINATA_SECRET_API_KEY;
+const pinataSecretApiKey = process.env.NEXT_PUBLIC_PINATA_SECRET_API_KEY;
 
 export async function uploadToPinata(file: File, name: string, description: string) {
   const formData = new FormData();
