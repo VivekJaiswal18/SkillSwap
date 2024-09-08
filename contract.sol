@@ -1,12 +1,12 @@
-contract address = 0x0192a6b655e4f92aac6e3a1c6177e43a2fd90093
+contract address = 0x400b52d8590408ca5d8d5b58c378153b5dab0d0a
 
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.0;
+pragma solidity ^0.8.19;
 
-import "@openzeppelin/contracts-upgradeable@4.8.0/token/ERC1155/ERC1155Upgradeable.sol";
-import "@openzeppelin/contracts-upgradeable@4.8.0/access/OwnableUpgradeable.sol";
-import "@openzeppelin/contracts-upgradeable@4.8.0/security/ReentrancyGuardUpgradeable.sol";
-import "@openzeppelin/contracts-upgradeable@4.8.0/proxy/utils/Initializable.sol";
+import "@openzeppelin/contracts-upgradeable@4.9.3/token/ERC1155/ERC1155Upgradeable.sol";
+import "@openzeppelin/contracts-upgradeable@4.9.3/access/OwnableUpgradeable.sol";
+import "@openzeppelin/contracts-upgradeable@4.9.3/security/ReentrancyGuardUpgradeable.sol";
+import "@openzeppelin/contracts-upgradeable@4.9.3/proxy/utils/Initializable.sol";
 
 contract EducationalMarketplace is Initializable, ERC1155Upgradeable, OwnableUpgradeable, ReentrancyGuardUpgradeable {
     struct Course {
@@ -30,52 +30,49 @@ contract EducationalMarketplace is Initializable, ERC1155Upgradeable, OwnableUpg
 
     function initialize(string memory uri) public initializer {
         __ERC1155_init(uri);
-        __Ownable_init_unchained();
-        __ReentrancyGuard_init_unchained();
+        __Ownable_init();
+        __ReentrancyGuard_init();
         nextCourseId = 1;
     }
 
-    function publishCourse(uint256 _price, string memory _contentURI) external {
-        require(_price > 0, "Price must be greater than zero");
+    function publishCourse(uint256 price, string memory contentURI) external {
+        require(price > 0, "Price must be greater than zero");
         uint256 courseId = nextCourseId;
         courses[courseId] = Course({
             creator: msg.sender,
-            price: _price,
+            price: price,
             isActive: true,
-            contentURI: _contentURI
+            contentURI: contentURI
         });
-        emit CoursePublished(courseId, msg.sender, _price, _contentURI);
+        emit CoursePublished(courseId, msg.sender, price, contentURI);
         nextCourseId++;
     }
 
-    function purchaseCourse(uint256 _courseId) external payable nonReentrant {
-        Course storage course = courses[_courseId];
+    function purchaseCourse(uint256 courseId) external payable nonReentrant {
+        Course storage course = courses[courseId];
         require(course.isActive, "Course is not active");
         require(msg.value >= course.price, "Insufficient payment");
-        require(!userPurchases[msg.sender][_courseId], "Course already purchased");
+        require(!userPurchases[msg.sender][courseId], "Course already purchased");
 
-        userPurchases[msg.sender][_courseId] = true;
+        userPurchases[msg.sender][courseId] = true;
         payable(course.creator).transfer(msg.value);
-
-        emit CoursePurchased(_courseId, msg.sender);
+        emit CoursePurchased(courseId, msg.sender);
     }
 
-    function getCourseURI(uint256 _courseId) external view returns (string memory) {
-        require(userPurchases[msg.sender][_courseId], "You don't own this course");
-        return courses[_courseId].contentURI;
+    function getCourseURI(uint256 courseId) external view returns (string memory) {
+        require(userPurchases[msg.sender][courseId], "You don't own this course");
+        return courses[courseId].contentURI;
     }
 
-    function updateCoursePrice(uint256 _courseId, uint256 _newPrice) external {
-        require(courses[_courseId].creator == msg.sender, "Only creator can update price");
-        require(_newPrice > 0, "Price must be greater than zero");
-
-        courses[_courseId].price = _newPrice;
+    function updateCoursePrice(uint256 courseId, uint256 newPrice) external {
+        require(courses[courseId].creator == msg.sender, "Only creator can update price");
+        require(newPrice > 0, "Price must be greater than zero");
+        courses[courseId].price = newPrice;
     }
 
-    function toggleCourseStatus(uint256 _courseId) external {
-        require(courses[_courseId].creator == msg.sender, "Only creator can toggle status");
-
-        courses[_courseId].isActive = !courses[_courseId].isActive;
+    function toggleCourseStatus(uint256 courseId) external {
+        require(courses[courseId].creator == msg.sender, "Only creator can toggle status");
+        courses[courseId].isActive = !courses[courseId].isActive;
     }
 
     function withdraw() external onlyOwner {

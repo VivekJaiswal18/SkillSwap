@@ -6,7 +6,7 @@ import { Card, CardFooter, CardHeader, cn, Input, NextUIProvider } from '@nextui
 import React from 'react';
 import { publishCourse } from '../../utils/contract';
 import { uploadToPinata } from '../../utils/upload';
-import { eduChain } from '@/utils/eduChainConfig';
+import { lineasepoliachain } from '@/utils/lineasepoliaChainConfig';
 import { Label } from 'flowbite-react';
 import { register } from 'module';
 import { Icons } from '../icons';
@@ -21,14 +21,14 @@ export default function PublishCourse() {
   const [content, setContent] = useState<File | null>(null);
   const [loading, setloading] = useState(false)
 
-  const switchToEduChain = async () => {
+  const switchTolineasepoliachain = async () => {
     if (!window.ethereum) throw new Error("No crypto wallet found");
     
     try {
       // Try to switch to the EDU Chain
       await window.ethereum.request({
         method: 'wallet_switchEthereumChain',
-        params: [{ chainId: `0x${eduChain.id.toString(16)}` }],
+        params: [{ chainId: `0x${lineasepoliachain.id.toString(16)}` }],
       });
     } catch (switchError: any) {
       // This error code indicates that the chain has not been added to MetaMask.
@@ -37,11 +37,11 @@ export default function PublishCourse() {
           await window.ethereum.request({
             method: 'wallet_addEthereumChain',
             params: [{
-              chainId: `0x${eduChain.id.toString(16)}`,
-              chainName: eduChain.name,
-              nativeCurrency: eduChain.nativeCurrency,
-              rpcUrls: eduChain.rpcUrls.default.http,
-              blockExplorerUrls: ['https://opencampus-codex.blockscout.com/']
+              chainId: `0x${lineasepoliachain.id.toString(16)}`,
+              chainName: lineasepoliachain.name,
+              nativeCurrency: lineasepoliachain.nativeCurrency,
+              rpcUrls: lineasepoliachain.rpcUrls.default.http,
+              blockExplorerUrls: ['https://rpc.sepolia.linea.build']
             }]
           });
         } catch (addError) {
@@ -78,7 +78,7 @@ export default function PublishCourse() {
       await window.ethereum.request({ method: 'eth_requestAccounts' });
   
       // Switch to EDU Chain
-      await switchToEduChain();
+      await switchTolineasepoliachain();
 
       // Upload image to Pinata
       const imageUri = await uploadToPinata(image, `${title}-image`, description);
@@ -136,7 +136,7 @@ export default function PublishCourse() {
           <div className='flex-col m-3 items-center justify-center'>
           <input className="flex m-5 h-14 rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 w-[400px]" type="text" value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Course Title" required />
           <textarea className="flex m-5 h-14 rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 w-[400px]" value={description} onChange={(e) => setDescription(e.target.value)} placeholder="Course Description" required />
-          <input className="flex m-5 h-14 rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 w-[400px]" type="number" value={price} onChange={(e) => setPrice(e.target.value)} placeholder="Price in EDU" required />
+          <input className="flex m-5 h-14 rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 w-[400px]" type="number" value={price} onChange={(e) => setPrice(e.target.value)} placeholder="Price in ETH" required />
           <input className="flex m-5 h-14 rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 w-[400px]" type="file" onChange={(e) => setImage(e.target.files?.[0] || null)} accept="image/*" required />
           <input className="flex m-5 h-14 rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 w-[400px]" type="file" onChange={(e) => setContent(e.target.files?.[0] || null)} required />
           <div className="flex justify-center mt-5">
