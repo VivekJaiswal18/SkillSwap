@@ -9,7 +9,7 @@
     "types": [
   // only include necessary types
   "node",
-  "react",
+  // "react",
   // any other types you need
 ],
     "allowJs": true,

@@ -1,14 +1,11 @@
 import { AbiCoder, ethers } from "ethers";
-import { eduChain } from "./eduChainConfig";
+import { lineasepoliachain } from "./lineasepoliaChainConfig";
 // import { getContract } from "viem";
 
-// export const CONTRACT_ADDRESS = "0xE0c8846f144FBEE8C9315294C2851f36a0C28593"; //newnft
-// export const CONTRACT_ADDRESS = "0xA2c9e783bC66317faa4C542C2F1e7F51c1C74a72"; //oldnft
-//export const CONTRACT_ADDRESS = "0x47bf63d444c578331113fc577aa3f53fe874c2b2"; //oldlatestnft
-export const CONTRACT_ADDRESS = "0x0192a6b655e4f92aac6e3a1c6177e43a2fd90093"; //latestnft.sol
 
-export const CONTRACT_ABI = 
-[
+export const CONTRACT_ADDRESS = "0x400b52d8590408ca5d8d5b58c378153b5dab0d0a"; //linea.sol
+
+export const CONTRACT_ABI = [
 	{
 		"inputs": [],
 		"stateMutability": "nonpayable",
@@ -300,7 +297,7 @@ export const CONTRACT_ABI =
 		"inputs": [
 			{
 				"internalType": "uint256",
-				"name": "_courseId",
+				"name": "courseId",
 				"type": "uint256"
 			}
 		],
@@ -382,12 +379,12 @@ export const CONTRACT_ABI =
 		"inputs": [
 			{
 				"internalType": "uint256",
-				"name": "_price",
+				"name": "price",
 				"type": "uint256"
 			},
 			{
 				"internalType": "string",
-				"name": "_contentURI",
+				"name": "contentURI",
 				"type": "string"
 			}
 		],
@@ -400,7 +397,7 @@ export const CONTRACT_ABI =
 		"inputs": [
 			{
 				"internalType": "uint256",
-				"name": "_courseId",
+				"name": "courseId",
 				"type": "uint256"
 			}
 		],
@@ -523,7 +520,7 @@ export const CONTRACT_ABI =
 		"inputs": [
 			{
 				"internalType": "uint256",
-				"name": "_courseId",
+				"name": "courseId",
 				"type": "uint256"
 			}
 		],
@@ -549,12 +546,12 @@ export const CONTRACT_ABI =
 		"inputs": [
 			{
 				"internalType": "uint256",
-				"name": "_courseId",
+				"name": "courseId",
 				"type": "uint256"
 			},
 			{
 				"internalType": "uint256",
-				"name": "_newPrice",
+				"name": "newPrice",
 				"type": "uint256"
 			}
 		],
@@ -613,7 +610,7 @@ export const CONTRACT_ABI =
 		"stateMutability": "nonpayable",
 		"type": "function"
 	}
-];
+]
 
 // export const publishCourse = async (signer, price, contentURI) => {
 // 	const contract = getContract(signer);
@@ -662,7 +659,7 @@ export const getNextCourseId = async (provider: ethers.Provider) => {
 //   };
 
 export const getAllCourses = async () => {
-	const provider = new ethers.JsonRpcProvider(eduChain.rpcUrls.default.http[0]);
+	const provider = new ethers.JsonRpcProvider(lineasepoliachain.rpcUrls.default.http[0]);
 	const contract = getContract(provider);
 	const courseCount = await contract.nextCourseId();
 	
@@ -677,6 +674,7 @@ export const getAllCourses = async () => {
 		contentURI: course.contentURI
 	  });
 	}
+	console.log("Fetched courses:", courses);
 	
 	return courses;
   };
